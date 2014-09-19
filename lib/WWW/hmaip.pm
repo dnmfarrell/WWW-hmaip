@@ -40,12 +40,10 @@ Returns your ip address, using L<http://geoip.hidemyass.com/ip/>.
 
 sub get_ip {
     my $response = HTTP::Tiny->new->get('http://geoip.hidemyass.com/ip/');
+    return $response->{content} if $response->{success};
     die join(' ', 'Error fetching ip: ',
                   ($response->{status} or ''),
-                  ($response->{reason} or '')) unless $response->{success};
-    my $ip = $response->{content};
-    #chomp $ip;
-    $ip;
+                  ($response->{reason} or ''));
 }
 
 =head1 SEE ALSO
