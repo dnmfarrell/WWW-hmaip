@@ -1,6 +1,9 @@
 Revision history for WWW::hmaip
 
 0.02    2014-09-19
+        -Removed dzil dep
+
+0.02    2014-09-19
         -Removed comment code
         -"refactored" get_ip()
 
